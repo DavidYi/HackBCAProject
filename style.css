@@ -6,9 +6,72 @@
 #intro h1{
 color: blue;
 }
-#meat{
+
+#bacon{
     color:red;
     font-size: 30px;
     
 }
+
+#porchetta{
+    color: green;
+    font-size: 30px;
+    
+}
+
+#Kevin{
+    color: purple;
+    font-size: 30px;
+    
+}
+
+#kevin2{
+    color: white;
+    font-size: 30px;
+    
+}
+
+
+#leberkas{
+    color: blue;
+    font-size: 30px;
+
+}
+
+#pork{
+    color:orange;
+    font-size: 30px;
+    
+}
+
+#ham {
+    color: pink;
+    font-size: 30px;
+}
+
+#pastrami{
+    color: yellow;
+    font-size: 30px;
+}
+
+#rump{
+    color: white;
+    font-size: 30px;
+}
+
+#tongue{
+    color: lime;
+    font-size: 30px;
+}
+
+#bresaola{
+    color: #CC3333;
+    font-size: 30px;
+}
+
+#beef{
+    color: 66FFFF;
+    font-size: 30px;
+}
+
 p { display: inline-block; }
