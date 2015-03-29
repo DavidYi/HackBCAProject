@@ -11,15 +11,42 @@
 </head>
 
 <body>
+    <script>
+        function func() {
+            var image = document.getElementById('c1');
+
+            l = image.offsetLeft;
+            t = image.offsetTop;
+            w = image.width;
+            h = image.height;
+
+            // Location inside the image
+            offX = parseInt(Math.random() * w);
+            offY = parseInt(Math.random() * h);
+
+            l += offX;
+            t += offY;
+            
+            var newImage = document.createElement("img");
+            newImage.setAttribute('src', 'jared.jpg');
+            newImage.style.position = "absolute";
+            newImage.style.left = l + "px";
+            newImage.style.top = t + "px";
+            document.body.appendChild(newImage);
+        } 
+    </script>
     <div class="image" id="image">
-        <div class="container">
+        <div class="container" id="c1">
             <div class="intro" id="intro">
-                <h1>BACON IS LIFE</h1>
-                <a href="">
-                    <button type="button">Click here to get some bacon</button>
-                </a>
+                <h1 id="title">BACON IS LIFE</h1>
+
+                <button type="button" id="introb" onclick="func()">Click here to get some bacon</button>
             </div>
             <div class="meat" id="meat">
+                <br>
+                <br>
+                <br>
+                <br>
                 <div class="bacon" id="bacon">
                     <p>Bacon ipsum dolor amet beef ribs doner tail, shank pastrami kevin andouille pancetta t-bone swine. Short loin beef pork chop picanha, landjaeger venison fatback cupim biltong pancetta shank turkey ball tip shankle. Sirloin cow turkey pork belly kevin salami, tongue prosciutto. Pork porchetta pork belly boudin salami, shank leberkas tail beef flank ground round chicken chuck. Pork belly picanha frankfurter porchetta drumstick, strip steak turducken capicola chicken beef ribs meatloaf ham. Kevin pork belly fatback, meatloaf tongue ham hock meatball pastrami tenderloin landjaeger filet mignon ham salami.
                     </p>
@@ -56,7 +83,7 @@
                     <p>
                         Ball tip tri-tip kielbasa tongue rump turducken meatloaf ground round picanha filet mignon. Bacon ribeye t-bone pork belly frankfurter. Tongue chuck prosciutto porchetta, picanha biltong pork corned beef leberkas chicken. Frankfurter turkey porchetta pork belly chuck. Kielbasa bresaola pork loin ham, swine jerky meatloaf ground round prosciutto tongue pork filet mignon spare ribs cupim sirloin. Corned beef flank bacon, pork pastrami doner spare ribs jerky tongue ribeye. Tongue short loin swine ball tip pork loin pig, turkey pork shank short ribs ground round bresaola jerky.</p>
                 </div>
-                <div class="turducken" id="turduken">
+                <div class="turducken" id="turducken">
                     <p>
 
                         Turducken t-bone fatback, filet mignon sausage pork biltong pastrami. Cow shank filet mignon short ribs tenderloin meatball kielbasa. Pork beef ribs turkey short ribs jowl strip steak corned beef porchetta pork chop ball tip meatloaf ham doner ham hock. Shank fatback andouille, beef ribs pork picanha pancetta kielbasa tail brisket sausage jowl.</p>
@@ -84,18 +111,20 @@
                     <p>
                         Beef beef ribs pig sirloin corned beef strip steak drumstick ham turkey capicola. Biltong doner fatback jowl porchetta short ribs ribeye pork loin, beef short loin meatball filet mignon tongue brisket tri-tip. Tail sirloin filet mignon ham hock, meatloaf ground round venison short loin pancetta doner porchetta brisket beef. Pork loin ribeye tongue shank, beef ribs meatloaf leberkas ball tip brisket spare ribs pork chop tenderloin flank. Rump spare ribs brisket, picanha ball tip kielbasa ground round pork belly shoulder chicken jerky andouille short ribs hamburger sausage.
                     </p>
+                    <p style="text-allign:  center; font-size: 70px;">Well Done! click <a href="">here</a>to continue</p>
+                    <br>
+                    <br>
+                    <br>
                 </div>
-
-
             </div>
         </div>
-    </div>
 
+    </div>
     <script>
         $(document).ready(function () {
-            
-            alert("Try to get to the bottom of the website to win the game!!");
-            
+
+            alert("Instructions: \n\nTry to get to the bottom of the website to win the game!!");
+
             Object.prototype.rotate = function (d) {
                 var s = "rotate(" + d + "deg)";
                 if (this.style) { // regular DOM Object
@@ -113,42 +142,47 @@
             }
 
             $(window).on('mousewheel', function (event) {
-                
+
                 var kevin2Top = $("#kevin2").position().top;
-                
-                if (kevin2Top <= $(this).scrollTop()) {
+
+                if (kevin2Top >= $(this).scrollTop()) {
                     $('body').scrollTop($('body').scrollTop() + event.originalEvent.wheelDelta);
                 }
 
             });
 
-            var colors = ["red", "blue", "green", "purple", "orange"];
+            var colors = ["red", "blue", "green", "purple", "orange", "pink", "turquoise"];
 
 
             $("#Kevin").hover(function () {
-                
+
                 var inveral = setInterval(function () {
                     $('#image').css("background-color", colors[Math.floor(Math.random() * colors.length)]);
                 }, 50)
-                
+
             });
 
             var ball = $("#ball").position().top;
             var n = 0;
             if (ball > $(this).scrollTop()) {
-                
+
                 var rotationisstupid = setInterval(function () {
                     document.getElementById("ball").rotate(n)
                     n = (n + 5) % 360;
                 }, 70);
-                
+
             }
-            
-            
-            
-            if ($(this).scrollTop() == $("#images").position().bottom){
-                
-            }
+
+            $(window).on('mousewheel', function (event) {
+
+                var turducken = $("#turducken").position().top;
+
+                if (turducken <= $(this).scrollTop()) {
+                    $('body').scrollTop($('body').scrollTop() + event.originalEvent.wheelDelta);
+                }
+
+            });
+
 
         });
     </script>

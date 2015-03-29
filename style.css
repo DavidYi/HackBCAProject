@@ -1,47 +1,64 @@
-
-.image{
+.image {
     background-color: black;
-        
-}
-#intro h1{
-color: blue;
 }
 
-#bacon{
-    color:red;
+.overlays {
+    position: absolute;
+}
+
+#intro h1 {
+    color: blue;
+}
+
+#title {
+    font-size: 80px;
+}
+
+#introb {
+    background-color: transparent;
+    color: white;
+    font-size: 40px;
+}
+
+#introb:hover {
+    background-color: white;
+    color: black;
+    font-size: 40px;
+}
+
+#bacon {
+    color: red;
     font-size: 30px;
-    
 }
 
-#porchetta{
+#porchetta {
     color: green;
     font-size: 30px;
-    
 }
 
-#Kevin{
+#Kevin {
     color: purple;
     font-size: 30px;
-    
 }
 
-#kevin2{
+#kevin2 {
     color: white;
     font-size: 30px;
-    
 }
 
+#ball {
+    color: turquoise;
+    font-size: 30px;
+}
 
-#leberkas{
+#leberkas {
     color: blue;
     font-size: 30px;
-
 }
 
-#pork{
-    color:orange;
+#pork {
+    color: orange;
     font-size: 30px;
-    
 }
 
 #ham {
@@ -49,29 +66,36 @@ color: blue;
     font-size: 30px;
 }
 
-#pastrami{
+#pastrami {
     color: yellow;
     font-size: 30px;
 }
 
-#rump{
+#rump {
     color: white;
     font-size: 30px;
 }
 
-#tongue{
+#tongue {
     color: lime;
     font-size: 30px;
 }
 
-#bresaola{
+#turducken {
+    color: indigo;
+    font-size: 30px;
+}
+
+#bresaola {
     color: #CC3333;
     font-size: 30px;
 }
 
-#beef{
+#beef {
     color: 66FFFF;
     font-size: 30px;
 }
 
-p { display: inline-block; }
+p {
+    display: inline-block;
+}
