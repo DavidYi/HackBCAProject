@@ -12,7 +12,8 @@
 
 <body>
     <script>
-        function func() {
+        var count = 0;
+        function time1(){
             var image = document.getElementById('image');
 
             l = 0;
@@ -21,6 +22,7 @@
             h = window.screen.availHeight;
 
             // Location inside the image
+            
             offX = Math.round(Math.random() * w);
             offY = Math.round(Math.random() * h);
 
@@ -34,6 +36,14 @@
             newImage.style.left = l + "px";
             newImage.style.top = t + "px";
             document.body.appendChild(newImage);
+            count++;
+            if (count < 100)
+                setTimeout(time1(), 500);
+            else {count = 0;}
+        }
+        
+        function func() {
+            setTimeout(time1(), 500);
         } 
     </script>
     <div class="image" id="image">
