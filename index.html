@@ -93,34 +93,58 @@
 
     <script>
         $(document).ready(function () {
-            $(window).on('mousewheel', function (event) {
-                var kevin2Top = $("#kevin2").position().top;
-                var is = false;
-                if (kevin2Top <= $(this).scrollTop()) {
-                    is = true;
+            
+            alert("Try to get to the bottom of the website to win the game!!");
+            
+            Object.prototype.rotate = function (d) {
+                var s = "rotate(" + d + "deg)";
+                if (this.style) { // regular DOM Object
+                    this.style.MozTransform = s
+                    this.style.WebkitTransform = s;
+                    this.style.OTransform = s;
+                    this.style.transform = s;
+                } else if (this.css) { // JQuery Object
+                    this.css("-moz-transform", s);
+                    this.css("-webkit-transform", s);
+                    this.css("-0-transform", s);
+                    this.css("transform", s);
                 }
-                if (is == true) {
+                this.setAttribute("rotation", d);
+            }
+
+            $(window).on('mousewheel', function (event) {
+                
+                var kevin2Top = $("#kevin2").position().top;
+                
+                if (kevin2Top <= $(this).scrollTop()) {
                     $('body').scrollTop($('body').scrollTop() + event.originalEvent.wheelDelta);
                 }
 
             });
 
             var colors = ["red", "blue", "green", "purple", "orange"];
+
+
             $("#Kevin").hover(function () {
-                $('#image').css("background-color", colors[Math.floor(Math.random() * colors.length)]);
+                
+                var inveral = setInterval(function () {
+                    $('#image').css("background-color", colors[Math.floor(Math.random() * colors.length)]);
+                }, 50)
+                
             });
+
             var ball = $("#ball").position().top;
-
-            if (ball <= $(this).scrollTop()) {
-                var bodyHeight = $("body").height() - $(window).height();
-                window.onscroll = function () {
-                    var deg = -$(window).scrollTop() * (360 / bodyHeight);
-                    $("#ball").css({
-                        "transform": "rotate(" + deg * 2 + "deg)",
-                    });
-                };
+            var n = 0;
+            if (ball > $(this).scrollTop()) {
+                
+                var rotationisstupid = setInterval(function () {
+                    document.getElementById("ball").rotate(n)
+                    n = (n + 5) % 360;
+                }, 70);
+                
             }
-
+            
+            if ($(this).scrollTop() == $("#images").position().bottom){}
 
         });
     </script>
