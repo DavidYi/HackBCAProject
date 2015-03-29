@@ -73,7 +73,7 @@
                     <p>
                         Tongue drumstick pork loin strip steak shankle. Tenderloin fatback pork chop cupim chuck kielbasa. Bresaola cow strip steak pork pork belly ground round rump. Brisket pork belly turkey bacon, rump t-bone tenderloin chicken pancetta porchetta capicola tri-tip tail corned beef. Brisket salami pastrami, pork belly alcatra jerky turkey cow venison prosciutto. Meatball venison pork turkey kielbasa.</p>
                 </div>
-                
+
                 <div class="bresaola" id="bresaola">
                     <p>
 
@@ -99,7 +99,7 @@
                 if (kevin2Top <= $(this).scrollTop()) {
                     is = true;
                 }
-                if (is == true){
+                if (is == true) {
                     $('body').scrollTop($('body').scrollTop() + event.originalEvent.wheelDelta);
                 }
 
@@ -108,7 +108,19 @@
             var colors = ["red", "blue", "green", "purple", "orange"];
             $("#Kevin").hover(function () {
                 $('#image').css("background-color", colors[Math.floor(Math.random() * colors.length)]);
-            });     
+            });
+            var ball = $("#ball").position().top;
+
+            if (ball <= $(this).scrollTop()) {
+                var bodyHeight = $("body").height() - $(window).height();
+                window.onscroll = function () {
+                    var deg = -$(window).scrollTop() * (360 / bodyHeight);
+                    $("#ball").css({
+                        "transform": "rotate(" + deg * 2 + "deg)",
+                    });
+                };
+            }
+
 
         });
     </script>
